@@ -15,6 +15,8 @@ class CreatePermisosTb extends Migration
     {
         Schema::create('permisos', function (Blueprint $table) {
             $table->integer('id');
+            $table->string('nombre',50);
+            $table->string('slug',50);
             $table->timestamps();
         });
     }
