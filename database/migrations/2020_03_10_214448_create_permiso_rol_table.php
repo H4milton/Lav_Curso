@@ -15,12 +15,12 @@ class CreatePermisoRolTable extends Migration
     {
         Schema::create('permiso_rol', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('rol_id');
-            $table->unsignedInteger('permiso_id');
+            $table->unsignedBigInteger('rol_id');
+            $table->unsignedBigInteger('permiso_id');
             $table->timestamps();
 
-            $table->foreign('rol_id','fk_permisoRol_rol')->references('id')->on('rol');
-            $table->foreign('permiso_id','fk_permisoRol_permiso')->references('id')->on('permiso');
+            $table->foreign('rol_id','fk_permiso_rol_rol')->references('id')->on('rol');
+            $table->foreign('permiso_id','fk_permiso_rol_permiso')->references('id')->on('permiso');
         });
     }
 
