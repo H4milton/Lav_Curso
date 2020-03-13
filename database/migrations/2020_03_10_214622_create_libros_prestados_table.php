@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLibroPrestadoTable extends Migration
+class CreateLibrosPrestadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateLibroPrestadoTable extends Migration
      */
     public function up()
     {
-        Schema::create('libro_prestado', function (Blueprint $table) {
+        Schema::create('libros_prestados', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('usuario_id');
             $table->unsignedBigInteger('libro_id');
@@ -24,8 +24,8 @@ class CreateLibroPrestadoTable extends Migration
 
             $table->timestamps();
 
-            $table->foreign('usuario_id','fk_libro_rrestado_usuario')->references('id')->on('usuario');
-            $table->foreign('libro_id','fk_libro_rrestado_libro')->references('id')->on('libro');
+            $table->foreign('usuario_id','fk_libro_rrestado_usuario')->references('id')->on('usuarios');
+            $table->foreign('libro_id','fk_libro_rrestado_libro')->references('id')->on('libros');
         });
     }
 
@@ -36,6 +36,6 @@ class CreateLibroPrestadoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('libro_prestado');
+        Schema::dropIfExists('libros_prestados');
     }
 }

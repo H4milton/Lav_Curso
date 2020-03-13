@@ -11,9 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->truncateTablas([
+        /*$this->truncateTablas([
           'rol'
-        ]);
+        ]);*/
 
         // $this->call(UsersTableSeeder::class);
         $this->call(TablaRolSeeder::class);

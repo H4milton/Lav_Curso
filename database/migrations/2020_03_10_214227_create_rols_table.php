@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLibroTable extends Migration
+class CreateRolsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreateLibroTable extends Migration
      */
     public function up()
     {
-        Schema::create('libro', function (Blueprint $table) {
+        Schema::create('rols', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('titulo',100);
-            $table->string('isbn',30);
-            $table->string('autor',100);
-            $table->integer('cantidad');
-            $table->string('editorial')->nullable();
-            $table->string('foto')->nullable();
+            $table->string('nombre',50);//->unique();
             $table->timestamps();
 
         });
@@ -33,6 +28,6 @@ class CreateLibroTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('libro');
+        Schema::dropIfExists('rols');
     }
 }

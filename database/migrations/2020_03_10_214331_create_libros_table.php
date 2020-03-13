@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePermisoTable extends Migration
+class CreateLibrosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,16 @@ class CreatePermisoTable extends Migration
      */
     public function up()
     {
-        Schema::create('permiso', function (Blueprint $table) {
+        Schema::create('libros', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre',50)->unique();
-            $table->string('slug',50)->unique();
+            $table->string('titulo',100);
+            $table->string('isbn',30);
+            $table->string('autor',100);
+            $table->integer('cantidad');
+            $table->string('editorial')->nullable();
+            $table->string('foto')->nullable();
             $table->timestamps();
+
         });
     }
 
@@ -28,6 +33,6 @@ class CreatePermisoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permiso');
+        Schema::dropIfExists('libros');
     }
 }
