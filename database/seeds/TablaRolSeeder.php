@@ -19,7 +19,7 @@ class TablaRolSeeder extends Seeder
         ];
 
         foreach ($rols as $key => $value) {
-            DB::table('rol')->insert([
+            DB::table('rols')->insert([
             'nombre' => $value,
             'created_at'=> Carbon::now()->format('y-m-d H:i:s')
         ]);
